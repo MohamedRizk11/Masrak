@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Station,Ticket,Roads,Users,FamousPlace
+from .models import Station,Ticket,Road,Users,FamousPlace,Point
 
 class famousplaces(admin.TabularInline):
     model = FamousPlace
@@ -13,6 +13,7 @@ class famousplace(admin.ModelAdmin):
 # Register your models here.
 admin.site.register(Station,stationplace)
 admin.site.register(Ticket)
-admin.site.register(Roads)
+admin.site.register(Road)
+admin.site.register(Point)
 admin.site.register(Users)
 admin.site.register(FamousPlace,famousplace)
