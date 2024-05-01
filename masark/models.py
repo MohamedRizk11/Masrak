@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.gis.db import models
 from django.utils.translation import gettext_lazy as _
 Status_type=(
     ("Normal","Normal"),
@@ -24,10 +25,12 @@ class FamousPlace(models.Model):
 
     def __str__(self):
         return self.name
+    
 
 class Roads(models.Model):
     fid=models.IntegerField(_("FID"))
     id=models.IntegerField(_("ID"),unique=True,primary_key=True)
+    geometry = models.LineStringField()
     name=models.CharField(_("Name"),max_length=40)
     time=models.IntegerField(_("Time"))
     distance=models.FloatField(_("Distane"),max_length=15)
